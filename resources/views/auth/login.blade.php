@@ -44,4 +44,17 @@
             </x-primary-button>
         </div>
     </form>
+
+<div class="mt-6 flex justify-center space-x-4">
+    <a href="{{ route('auth.google') }}" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">
+        Login dengan Google
+    </a>
+    <a href="{{ route('auth.facebook') }}" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Login dengan Facebook
+    </a>
+</div>
+
+@error('social')
+    <p class="mt-3 text-sm text-red-600 text-center">{{ $message }}</p>
+@enderror
 </x-guest-layout>
