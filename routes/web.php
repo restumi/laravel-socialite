@@ -18,6 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/user/connect/google', [SocialAuthController::class, 'redirectToGoogleForConnect'])->name('connect.google');
+    Route::get('/user/connect/google/callback', [SocialAuthController::class, 'handleGoogleConnectCallback']);
+    Route::get('/user/connect/facebook', [SocialAuthController::class, 'redirectToFacebookForConnect'])->name('connect.facebook');
+    Route::get('/user/connect/facebook/callback', [SocialAuthController::class, 'handleFacebookConnectCallback']);
 });
 
 require __DIR__.'/auth.php';
