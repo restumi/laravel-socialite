@@ -1,4 +1,4 @@
-{{-- <x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -14,21 +14,4 @@
             </div>
         </div>
     </div>
-</x-app-layout> --}}
-
-@extends('layouts.app')
-
-@section('content')
-<div class="container mx-auto py-8">
-    <h1 class="text-2xl font-bold">Halo, {{ Auth::user()->name }}!</h1>
-    <p class="mt-2">Kamu berhasil login.</p>
-    <a href="{{ route('logout') }}"
-       class="mt-4 inline-block text-red-600"
-       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        Logout
-    </a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-        @csrf
-    </form>
-</div>
-@endsection
+</x-app-layout>
